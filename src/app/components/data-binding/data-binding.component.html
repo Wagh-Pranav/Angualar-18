@@ -1,0 +1,42 @@
+
+<div class="container">
+<div class="row">
+            Hello<p>data-binding works!</p>
+            <div class="col">
+                Interpolation
+                <h4>        {{courseName}}         </h4>
+                <div>{{inputType}}</div>
+                <input type="text" value="{{courseName}}" placeholder="Enter text"/>
+                <input type="{{inputType}}" />
+            </div>
+            <div class="col" style="margin-left: 2rem;">
+                Property Binding
+                <div [class]="myClassName">Danger </div>
+                <input type="text" [value]="courseName" />
+                <input [type]="inputType"/>
+            </div>
+            <div class="col" style="margin-left: 2rem;">
+                Event Binding
+                <input type="text" [value]="myClassName"/>
+                <button class="btn btn-success" (click)="showAlert('Hii Pranav')">Show welcome</button>
+                <button class="btn btn-success" (click)="changeClassName('ClassName Changed')">Change ClassName</button>
+            </div>
+            <div class="col" style="margin-left: 2rem;">
+                2 way data Binding by ngModel
+                <input type="text" [(ngModel)]="courseName"/> - {{courseName}}
+                <select [(ngModel)]="Location">
+                    <option value="">Select</option>
+                    <option value="California">California</option>
+                    <option value="Virginia">Virginia</option>
+                    <option value="Dallas">Dallas</option>
+                    <button class="btn btn-success" >{{Location}}</button>
+                </select>
+            </div>
+            <div class="col" style="margin-left: 2rem;">
+                Signal
+                <h2> {{fullName()}} </h2>
+            </div>
+
+
+</div>
+</div>

@@ -1,0 +1,123 @@
+
+<style>
+    .container{
+        border:2px solid crimson;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    .colBorder{
+        border: 50px;
+        border-radius: 15px;
+    }
+
+    .row 
+        {
+        justify-content: center;
+        align-items: center;
+    }
+    .col-3{
+        display: flexbox;
+        justify-content: center;
+        margin-bottom: .5rem;
+    }
+    .col-4{
+        justify-content: center;
+        margin-bottom: .5rem;
+    }
+
+    .listI
+    {
+        list-style-position: inside;
+    }
+    .myUl
+    {
+        display: flexbox;           
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;
+    }
+    
+
+</style>
+<div class="container">
+    <div class="bg-primary-subtle text-center " style="margin-top: .9rem;">
+        <h1 style="font-style: italic; font-family: Verdana, Geneva, Tahoma, sans-serif;">If-Else</h1>
+        <p>If Else ....</p>
+        
+    </div>
+    <div class="row pt-3"  >
+        <div class="col-3" >
+            @if(div1Visible){
+                <div  class="p-3 mb-2 bg-warning text-white text-center colBorder" >
+                    <h4 >Div-1</h4>
+                </div>
+            }
+        </div>
+        <div class="col-3">
+            @if (isPrimaryDivVisible) {
+                <div class="p-3 mb-2 bg-success text-white text-center colBorder ">
+                    <h4 >Div-2</h4>
+                </div>
+            }
+            @else {
+                <div class="p-3 mb-2 bg-danger bg-gradient text-white text-center colBorder ">
+                    <h4 >Div-2</h4>
+                </div>
+            }
+            
+        </div>
+        <div class="col-3">
+            @if (num1==num2) {
+                <div class="p-3 mb-2 bg-danger text-white text-center colBorder">
+                    <h4 >Div-3</h4>
+                </div>
+            }
+            @else {
+                <div class="p-3 mb-2 bg-primary bg-gradient text-white text-center colBorder">
+                    <h4 >Div-3</h4>
+                </div>
+            }
+        </div>
+        <div class="col-3">
+            <div class="p-3 mb-2 text-white bg-info pt-3 text-center colBorder">
+                @if (selectedStatus=='California') 
+                {
+                    <p>California</p>
+                }@else if (selectedStatus=='Dallas') 
+                {
+                    <p>Dallas</p>
+                }@else if (selectedStatus=='Virginia') 
+                {
+                    <p>Virginia</p>
+                }@else {
+                    <p>Select State</p>
+                }
+                <h4 >Div-4</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row pt-3">
+        <div class="col-3 text-center">
+            <button class="btn btn-danger" (click)="hideDiv1()">Hide</button>
+            <button class="btn btn-primary mx-2" (click)="showDiv1()">Show</button>
+        </div>
+        <div class="col-3 text-center">
+            <button class="btn btn-primary" (click)="toggleDiv2()">Toggle</button>
+        </div>
+        <div  class="col-3 text-center" >
+            <input type="text" placeholder="num 1" [(ngModel)]="num1" style="width: 50%;">
+            <input type="text" placeholder="num 2"  [(ngModel)]="num2" style="width: 50%;">
+        </div>
+        <div class="col-3 text-center" >
+            <select [(ngModel)]="selectedStatus">
+                <option value="">Select State</option>
+                <option value="California">California</option>
+                <option value="Dallas">Dallas</option>
+                <option value="Virginia">Virginia</option>
+            </select>
+        </div>
+    </div>
+   
+    
+</div>

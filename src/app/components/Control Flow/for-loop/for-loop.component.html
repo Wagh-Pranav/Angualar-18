@@ -1,0 +1,74 @@
+<style>
+    .container {
+        border: 2px solid crimson;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+
+    .colBorder {
+        border: 50px;
+        border-radius: 15px;
+    }
+
+    .row {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .col-3 {
+        display: flexbox;
+        justify-content: center;
+        margin-bottom: .5rem;
+    }
+
+    .col-4 {
+        justify-content: center;
+        margin-bottom: .5rem;
+    }
+
+    .listI {
+        list-style-position: inside;
+    }
+
+    .myUl {
+        display: flexbox;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<div class="container">
+    <div class="bg-primary-subtle text-center " style="margin-top: .9rem;">
+        <h1 style="font-style: italic; font-family: Verdana, Geneva, Tahoma, sans-serif;">For Loop</h1>
+        <p>For Loop....</p>
+    </div>
+
+    <div class="row pt-3 style">
+        <div class="col-5">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sr No</th>
+                        <th>Name</th>
+                        <th>City</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (item of studentList; track $index) {
+                    <tr>
+                        <td>{{$index+1}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.city}}</td>
+                        <td>
+                            @if (item.isActive) {<span >Active</span>}
+                            @else { <span >De-Active</span>}                         
+                        </td>
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

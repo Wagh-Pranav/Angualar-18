@@ -1,0 +1,136 @@
+<p style="text-align: center;">structural-directive works!</p>
+
+<style>
+    .container{
+        border:2px solid crimson;
+        border-radius: 5px;
+    }
+
+    .colBorder{
+        border: 50px;
+        border-radius: 15px;
+    }
+
+    .row 
+        {
+        justify-content: center;
+        align-items: center;
+    }
+    .col-3{
+        display: flexbox;
+        justify-content: center;
+        margin-bottom: .5rem;
+    }
+    .col-4{
+        justify-content: center;
+        margin-bottom: .5rem;
+    }
+
+    .listI
+    {
+        list-style-position: inside;
+    }
+    .myUl
+    {
+        display: flexbox;           
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;
+    }
+    
+
+</style>
+<div class="container">
+    <div class="bg-primary-subtle text-center " style="margin-top: .9rem;">
+        <h1 style="font-style: italic; font-family: Verdana, Geneva, Tahoma, sans-serif;">Structural directive</h1>
+        <p>*ngFor, *ngIf ....</p>
+        <button class="btn btn-primary" (click)="navigateToAttribute()">Go to Attribute-Directive</button>
+    </div>
+    <div class="row pt-3"  >
+        <div class="col-3" >
+            <div *ngIf="isDiv1Visible" class="p-3 mb-2 bg-warning text-white text-center colBorder" >
+                <h4 >Div-1</h4>
+            </div>
+        </div>
+        <div class="col-3">
+            <div *ngIf="Div2" class="p-3 mb-2 bg-success text-white text-center colBorder ">
+                <h4 >Div-2</h4>
+            </div>
+        </div>
+        <div class="col-3">
+            <div *ngIf="num1==num2" class="p-3 mb-2 bg-danger text-white text-center colBorder">
+                <h4 >Div-3</h4>
+            </div>
+        </div>
+        <div class="col-3">
+            <div *ngIf="selectedState=='California'" class="p-3 mb-2 text-white bg-info pt-3 text-center colBorder">
+                <h4 >Div-4</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row pt-3">
+        <div class="col-3 text-center">
+            <button class="btn btn-danger" (click)="hideDiv1()">Hide</button>
+            <button class="btn btn-primary mx-2" (click)="showDiv1()">Show</button>
+        </div>
+        <div class="col-3 text-center">
+            <button class="btn btn-primary" (click)="toggleDiv2()">Toggle</button>
+        </div>
+        <div  class="col-3 text-center" >
+            <input type="text" [(ngModel)]="num1" placeholder="num 1" style="width: 50%;">
+            <input type="text" [(ngModel)]="num2" placeholder="num 2"style="width: 50%;">
+        </div>
+        <div class="col-3 text-center" >
+            <select [(ngModel)]="selectedState">
+                <option value="">Select State</option>
+                <option value="California">California</option>
+                <option value="Dallas">Dallas</option>
+                <option value="Virginia">Virginia</option>
+            </select>
+        </div>
+    </div>
+    <div class="row pt-3">
+            <div class="col-4">
+                <ul class="myUl">
+                    <li *ngFor="let city of cityArray">{{city}}</li>
+                </ul>
+            </div>
+            <div class="col-4" >
+                <select>
+                    <option *ngFor="let city of cityArray" >{{city}}</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <select>
+                    <option *ngFor="let student of studentList" [value]="student.id">{{student.name}}</option>
+                </select>
+            </div>
+    </div>
+    <div class="row pt-3 style">
+        <div class="col-5">
+            <table class="table table-bordered" >
+                <thead>
+                    <tr>
+                        <th>Sr No</th>
+                        <th>Name</th>
+                        <th>City</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let student of studentList;let sr = index">
+                        <td>{{sr+1}}</td>
+                        <td>{{student.name}}</td>
+                        <td>{{student.city}}</td>
+                        <td>
+                            <span *ngIf="student.isActive">Active</span>
+                            <span *ngIf="!student.isActive">De-Active</span>
+                            
+
+                        </td>   
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
